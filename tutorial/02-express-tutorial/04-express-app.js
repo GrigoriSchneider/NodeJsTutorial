@@ -3,7 +3,6 @@ const path = require('path');
 
 const app = express();
 
-// setup static and middleware
 app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
@@ -15,5 +14,5 @@ app.all('*', (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log('server is listening on port 5000....');
+  console.log(`server is listening on port 5000....`);
 });
