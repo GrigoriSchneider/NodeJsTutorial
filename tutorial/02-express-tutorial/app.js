@@ -1,25 +1,20 @@
 const express = require('express');
 const app = express();
-const logger = require('./logger');
+let { people } = require('./data');
 
-// req => middleware => res
-app.use('/api', logger);
-// api/home/about/products
+// static assets
+app.use(express.static('./methods-public'));
+// parse form data
+app.use(express.urlencoded({ extended: false }));
+// parse json
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Home');
-});
-
-app.get('/about', (req, res) => {
-  res.send('About');
-});
-
-app.get('/api/products', (req, res) => {
-  res.send('Products');
-});
-
-app.get('/api/items', (req, res) => {
-  res.send('Items');
+app.post('/login', (req, res) => {
+  const { name } = req.body;
+  if (name) {
+    return res.status(200).send(`Welcome ${name}`);
+  }
+  res.status(401).send('Please Provide Credentials');
 });
 
 app.listen(5000, () => {
