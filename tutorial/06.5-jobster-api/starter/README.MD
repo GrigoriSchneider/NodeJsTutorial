@@ -325,7 +325,7 @@ jobType: {
       type: String,
       default: 'my city',
       required: true,
-    },
+    },company
 ```
 
 - default property just for fun, values will be provided by front-end
@@ -364,6 +364,9 @@ const start = async () => {
 };
 
 start();
+
+// stop server => node populate
+// then all the jobs will be on the database
 ```
 
 #### Modify Get All Jobs
