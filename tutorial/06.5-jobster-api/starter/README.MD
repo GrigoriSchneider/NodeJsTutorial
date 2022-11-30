@@ -545,7 +545,7 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 controllers/jobs
 
 ```js
-const showStats = (req, res) => {
+const showStats = async (req, res) => {
   res
     .status(StatusCodes.OK)
     .json({ defaultStats: {}, monthlyApplications: [] });
